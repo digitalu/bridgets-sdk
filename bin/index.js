@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 var argv = require('minimist')(process.argv.slice(2));
-const execSync = require('child_process');
+const { execSync } = require('child_process');
 const axios = require('axios');
 const AdmZip = require('adm-zip');
 

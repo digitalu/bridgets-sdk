@@ -9,12 +9,11 @@ const url = `${argv._[0].replace(/\/$/, '')}/fetchBridgeSDK`;
 const directory = './sdk';
 
 const config = {
-  method: 'post',
+  method: 'get',
   url,
   headers: {
     'Content-Type': 'application/json',
   },
-  data: data,
   responseType: 'arraybuffer',
 };
 

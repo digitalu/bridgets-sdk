@@ -1,7 +1,18 @@
 #!/usr/bin/env node
 var argv = require('minimist')(process.argv.slice(2));
+const execSync = require('child_process');
 const axios = require('axios');
 const AdmZip = require('adm-zip');
+
+const runCommand = (command) => {
+  try {
+    execSync(`${command}`, { stdio: 'inherit' });
+  } catch (e) {
+    console.error(`Failed to execute ${command}`, e);
+    return false;
+  }
+  return true;
+};
 
 console.log('url: ', argv._[0]);
 
@@ -25,3 +36,9 @@ axios(config)
   .catch(function (error) {
     console.log(error);
   });
+
+runCommand(`echo Installing axios...\n`);
+
+runCommand(`npm install axios`);
+
+// MAKE THE CLIENT INSTALL AXIOS

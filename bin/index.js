@@ -5,7 +5,7 @@ const AdmZip = require('adm-zip');
 
 console.log('url: ', argv._[0]);
 
-const url = argv._[0];
+const url = `${argv._[0].replace(/\/$/, '')}/fetchBridgeSDK`;
 const directory = './sdk';
 
 const config = {

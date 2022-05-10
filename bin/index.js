@@ -2,6 +2,7 @@
 var argv = require('minimist')(process.argv.slice(2));
 const axios = require('axios');
 const AdmZip = require('adm-zip');
+const fs = require('fs');
 
 const runCommand = (command) => {
   try {
@@ -27,6 +28,8 @@ const config = {
   responseType: 'arraybuffer',
 };
 
+if (fs.existsSync('./sdk')) fs.rmSync('./sdk', { recursive: true });
+
 axios(config)
   .then(function (response) {
     const zipFolder = new AdmZip(response.data);
@@ -36,8 +39,6 @@ axios(config)
     console.log(error);
   });
 
-runCommand(`echo Installing axios...\n`);
+// runCommand(`echo Installing axios...\n`);
 
-runCommand(`npm install axios`);
-
-// MAKE THE CLIENT INSTALL AXIOS
+// runCommand(`npm install axios`);

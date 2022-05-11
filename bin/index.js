@@ -37,6 +37,7 @@ axios(config)
 
     const fetchFile = fs.readFileSync('./sdk/fetchBridgeTS.ts', 'utf-8');
     fetchFile.replace(`const urlServer = '';`, `const urlServer = '${url}';`);
+    console.log(fetchFile);
     fs.writeFileSync('./sdk/fetchBridgeTS.ts', fetchFile);
   })
   .catch(function (error) {

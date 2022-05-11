@@ -47,6 +47,6 @@ const packageJSON = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
 
 if (!packageJSON) throw new Error('package.json not found.');
 
-if (!packageJSON.dependencies.axios) runCommand(`npm install axios`);
-if (!packageJSON.dependencies.url) runCommand(`npm install url`);
-if (!packageJSON.dependencies['form-data']) runCommand(`npm install form-data`);
+if (!packageJSON.dependencies.axios) runCommand(`echo Installing axios`) & runCommand(`npm install axios`);
+if (!packageJSON.dependencies.url) runCommand(`echo Installing url`) & runCommand(`npm install url`);
+if (!packageJSON.dependencies['form-data']) runCommand(`echo Installing form-data`) & runCommand(`npm install form-data`);

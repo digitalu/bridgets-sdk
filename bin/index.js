@@ -34,6 +34,9 @@ axios(config)
   .then(function (response) {
     const zipFolder = new AdmZip(response.data);
     zipFolder.extractAllTo(directory, true);
+
+    const fetchFile = fs.readFileSync('./sdk/fetchBridgeTS.ts', 'utf-8');
+    fetchFile.replace(`const urlServer = '';`, `const urlServer = '${url}';`);
   })
   .catch(function (error) {
     console.log(error);
@@ -43,8 +46,6 @@ const packageJSON = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
 
 if (!packageJSON) throw new Error('package.json not found.');
 
-console.log(packageJSON.dependencies);
-
-// runCommand(`echo Installing axios...\n`);
-
-// runCommand(`npm install axios`);
+if (!packageJSON.dependencies.axios) runCommand(`npm install axios`);
+if (!packageJSON.dependencies.url) runCommand(`npm install url`);
+if (!packageJSON.dependencies['form-data']) runCommand(`npm install form-data`);

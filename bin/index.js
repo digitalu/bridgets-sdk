@@ -39,6 +39,12 @@ axios(config)
     console.log(error);
   });
 
+const packageJSON = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
+
+if (!packageJSON) throw new Error('package.json not found.');
+
+console.log(packageJSON.dependencies);
+
 // runCommand(`echo Installing axios...\n`);
 
 // runCommand(`npm install axios`);

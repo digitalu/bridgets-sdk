@@ -35,8 +35,8 @@ axios(config)
     const zipFolder = new AdmZip(response.data);
     zipFolder.extractAllTo(directory, true);
 
-    const fetchFile = fs.readFileSync('./sdk/fetchBridgeTS.ts', 'utf-8');
-    fetchFile.replace(`const urlServer = '';`, `const urlServer = '${url}';`);
+    let fetchFile = fs.readFileSync('./sdk/fetchBridgeTS.ts', 'utf-8');
+    fetchFile = fetchFile.replace(`const urlServer = '';`, `const urlServer = '${url}';`);
     fs.writeFileSync('./sdk/fetchBridgeTS.ts', fetchFile);
   })
   .catch(function (error) {

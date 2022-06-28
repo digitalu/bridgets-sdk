@@ -1,0 +1,28 @@
+{
+  "name": "bridgets-sdk",
+  "version": "2.0.0",
+  "description": "",
+  "main": "bin/index.js",
+  "bin": {
+    "bridgets-sdk": "bin/index.js"
+  },
+  "scripts": {
+    "publish-minor": "npm version patch && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digitalu/create-bridgets-sdk.git"
+  },
+  "author": "El Ouahabi Nabil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/digitalu/create-bridgets-sdk/issues"
+  },
+  "homepage": "https://github.com/digitalu/create-bridgets-sdk#readme",
+  "dependencies": {
+    "adm-zip": "^0.5.9",
+    "axios": "^0.27.2",
+    "child_process": "^1.0.2",
+    "minimist": "^1.2.6"
+  }
+}
